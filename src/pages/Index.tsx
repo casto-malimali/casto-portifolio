@@ -1,0 +1,28 @@
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import SkillsSection from "@/components/SkillsSection";
+import ContactSection from "@/components/ContactSection";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+
+      {/* Footer */}
+      <footer className="border-t border-border py-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Casto E. Malimali. Crafted with passion.
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
