@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.png";
 
 const HeroSection = () => {
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/casto-malimali", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/castomalimali", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/castomalimali", label: "X (Twitter)" },
+    { icon: Instagram, href: "https://www.instagram.com/castomalimali/", label: "Instagram" },
+  ];
   return (
     <section
       id="home"
@@ -85,14 +91,12 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="mt-10 flex items-center gap-4 justify-center lg:justify-start"
           >
-            {[
-              { icon: Github, label: "GitHub" },
-              { icon: Linkedin, label: "LinkedIn" },
-              { icon: Mail, label: "Email" },
-            ].map(({ icon: Icon, label }) => (
+            {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all hover:border-primary/40 hover:text-primary hover:bg-primary/5"
               >

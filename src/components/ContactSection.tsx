@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Github, Globe, Instagram, Linkedin, Mail, MapPin, Phone, Search, Send, Twitter } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,20 @@ const ContactSection = () => {
     email: "",
     message: "",
   });
+
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/casto-malimali", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/castomalimali", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/castomalimali", label: "X (Twitter)" },
+    { icon: Instagram, href: "https://www.instagram.com/castomalimali/", label: "Instagram" },
+    { icon: Facebook, href: "https://www.facebook.com/castomalimali", label: "Facebook" },
+    { icon: Globe, href: "https://community.ai.or.tz/portal/community/243", label: "Community AI" },
+    {
+      icon: Search,
+      href: "https://www.google.com/search?q=casto+malimali&oq=casto+malimali&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIICAEQRRgnGDsyBggCEEUYOzIICAMQABgWGB4yCAgEEAAYFhgeMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEINzcyNGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8#",
+      label: "Google Search",
+    },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,12 +154,14 @@ const ContactSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 flex items-center justify-center gap-4"
+          className="mt-12 flex flex-wrap items-center justify-center gap-4"
         >
-          {[Github, Linkedin, Twitter].map((Icon, i) => (
+          {socialLinks.map(({ icon: Icon, href, label }, i) => (
             <a
               key={i}
-              href="#"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-all hover:border-primary/40 hover:text-primary hover:bg-primary/5"
             >
               <Icon className="h-5 w-5" />
